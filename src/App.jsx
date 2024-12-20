@@ -2,8 +2,8 @@ import 'bulma/css/bulma.css';
 import './App.scss';
 import { useState } from 'react';
 import cn from 'classnames';
-import { GoodList } from './compotents/GoodList/GoodList';
-import { Reset } from './compotents/Reset/Reset';
+import { GoodList } from './components/GoodList/GoodList';
+import { Reset } from './components/Reset/Reset';
 
 export const goodsFromServer = [
   'Dumplings',
@@ -44,10 +44,10 @@ const SORT_FIELDS = {
 export const App = () => {
   const [sortedField, setSortedField] = useState('');
   const [reversed, setReversed] = useState(false);
-  let visibleGoods = getSortedGoods(goodsFromServer, sortedField);
+  const visibleGoods = getSortedGoods(goodsFromServer, sortedField);
 
   if (reversed) {
-    visibleGoods = visibleGoods.toReversed();
+    visibleGoods.reverse();
   }
 
   return (
